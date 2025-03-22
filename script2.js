@@ -1,9 +1,7 @@
 const tl = gsap.timeline();
 const link=document.querySelector(".link");
-link.addEventListener("click",()=>{
-    link.classList.add("linked");
-    console.log("hj");
-})
+
+//animations
 gsap.from(".clip-top,.clip-bottom",2,{
     delay:1,
     height:"50vh",
@@ -22,7 +20,14 @@ gsap.from(".clip-top .marque,.clip-bottom .marque",5,{
 gsap.from(".clip-center .marque",5,{
     delay:1,
     left:"-50%",
+    
     ease:"power3.inOut"
+})
+//
+gsap.to(".clip-center",3,{
+    delay:5,
+    opacity:0,
+    ease:"power4.inOut"
 })
 gsap.to(".clip-top",2,{
     delay:6,
@@ -40,10 +45,29 @@ gsap.to(".clip-top .marque,.clip-bottom .marque,.clip-center .marque span",1,{
     ease:"power2.inOut"
 })
 
+//debugging and action play
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.querySelector(".show-reel");
+    video.play().catch(() => {
+      console.log("Autoplay blocked. User interaction required.");
+    });
+  });
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.querySelector(".show-reel");
+
+  // Play video on user interaction
+  const playVideo = () => {
+    video.play().then(() => {
+      console.log("Video playback started.");
+    }).catch((error) => {
+      console.log("Video playback failed:", error);
+    });
+  };
+  let clip=document.querySelector(".clip-center");
+  // Trigger play on any user interaction
+  document.addEventListener("click", playVideo);
+  document.addEventListener("touchstart", playVideo);
+  document.addEventListener("keydown", playVideo);
+});
 
 
-tl.from(".linked",{
-    background:"rgb(224, 222, 222)",
-    color:"black",
-
-})
