@@ -1,26 +1,36 @@
-/* Universal Selector */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "EB Garamond", serif;
     font-weight: 400;
+    font-family: '';
 }
 @font-face {
+    font-family: 'SF Pro Display';
+    src: url('SFPRODISPLAYBOLD.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Apple Garamond';
-    src: url('/fonts/AppleGaramond.woff2') format('woff2'),
-         url('/fonts/AppleGaramond.woff') format('woff'),
-         url('/fonts/AppleGaramond.ttf') format('truetype');
+    src: url('AppleGaramond.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-body {
-    font-family: 'Apple Garamond', serif;
+@font-face {
+    font-family: 'Apple Garamond';
+    src: url('AppleGaramond-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
 }
 :root{
     --1st: black;
     --2nd: rgb(224, 222, 222);
+    --1st-font: 'AppleGaramond.ttf';
+    --2nd-font: 'AppleGaramond-BoldItalic.ttf';
+    --3rd-font: 'SFPRODISPLAYBOLD.otf';
     --links-pad: 10px 20px;
     --links-pad-small: 5px 0;
     --link-pad: 10px;
@@ -33,9 +43,10 @@ body{
     height: 100vh;
 }
 .home{
+    width: 100vw;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: -2;
     background-color:  var(--2nd);
     display: flex;
@@ -48,12 +59,11 @@ body{
 }
 .nav{
     color: var(--1st);
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    
+    padding:var(--links-pad);
 }
 .links{
     background-color: var(--1st);
@@ -73,6 +83,7 @@ body{
     color:  var(--2nd);
     border-radius: 8px;
     transition: .2s linear;
+    font-family: var(--1st-font);
 }
 .link:first-child{
     background-color: var(--2nd);
@@ -93,7 +104,10 @@ body{
     opacity: 0;
 }
 .show-reel{
-    
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
     background-color: var(--2nd);
     height: 100vh;
     width: 100vw;
@@ -136,8 +150,9 @@ body{
     overflow: hidden;
     position: relative;
     width: 100vw;
-    height: 33.3vh;
+    height: 33.4vh;
     top: 33.3vh;
+    background-color: var(--2nd);
 }
 .marque{
     position: absolute;
@@ -148,7 +163,7 @@ body{
     color: #fff;
     mix-blend-mode: difference;
     font-size: 8vw;
-    
+    font-family: var(--1st-font);
 }
 .marque-container{
     width: 100%;
@@ -186,6 +201,28 @@ body{
        
     }
     .marque-container{
-        font-size: 15vw;
+        font-size: 20vw;
     }
+    .show-reel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+      }
+      
+      .play-prompt {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 1000;
+        display: none; /* Hidden by default */
+      }
 }
