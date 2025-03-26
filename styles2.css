@@ -26,11 +26,17 @@
     --links-pad-small: 5px 0;
     --link-pad: 10px;
     --link-pad-small: 5px;
+    --padding-large: 100px 50px;
+    --padding-small: 50px 25px;/* 8wwh799ewee89wu89ueu+rep9u8ep7+u+u89 e*/
+    --font-large: 120px;
+    --font-medium: 70px;
+    --font-small: 50px;
+    --font-tiny: 18px;
 }
 body{
     overflow-x: hidden;
 }
-.home,.works,.case-studies{
+.home{
     height: 100vh;
 }
 .home{
@@ -70,7 +76,7 @@ body{
     z-index: 10;
 }
 .link{
-    padding: 10px ;
+    padding: var(--link-pad);
     text-decoration: none;
     color:  var(--2nd);
     border-radius: 8px;
@@ -105,18 +111,7 @@ body{
     width: 100vw;
     z-index: -1;
 }
-.works{
-    background-color: var(--1st);
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 50px;
-}
-.work{
-    height: 25vw;
-    width: 25vw;
-    background-color: red;
-}
+
 .loader{
     font-family: var(--1st-font);
     height: 100vh;
@@ -186,6 +181,63 @@ body{
     padding: 60px;
     font-family: var(--2nd-font);
 }
+
+.works{
+    height: 100%;
+    background-color: var(--1st);
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: var(--padding-large);
+}
+.work-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;/* 9u */
+    width: 100%;
+}
+.work{
+    background-image: url("wi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100%;
+    border-radius: 10px;
+}
+.inline{
+    display: inline-block;
+}
+.brand{
+    text-align: left;
+    font-size: var(--font-medium);
+    padding: var(--links-pad);
+    font-family: var(--2nd-font);
+}
+.type{
+    text-align:start;
+    font-size: var(--font-tiny);
+    font-family: var(--2nd-font);
+    padding: var(--links-pad);
+    opacity: 0.6;
+}
+.tall{
+    height: 60vh;
+}
+.head-container{
+    width: 100%;
+    text-align: left;
+}
+.head{
+    color: var(--2nd);
+    font-family: var(--1st-font);
+    font-size: var(--font-large);
+    padding: 80px 0;
+}
+b{
+    font-family: var(--2nd-font);
+}
 @media (max-width:900px) {
     .logo{
         display: none;
@@ -203,5 +255,24 @@ body{
     .marque-container{
         font-size: 20vw;
     }
-   
+    .works{
+        height: 200vh;
+        gap: 20px;
+    }
+    
+    .work-row{
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .tall{
+        height: 30vh;
+    }
+    .head{
+        font-size: var(--font-medium);
+        padding: 40px 0;
+    }
+    .brand{
+        font-size: var(--font-small);
+    }
 }
