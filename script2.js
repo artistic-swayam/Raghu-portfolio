@@ -70,4 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", playVideo);
 });
 
+//shery js
+
+Shery.mouseFollower();
+
+Shery.imageEffect(".work", {
+  style: 6,
+  debug: true,
+});
+
 
